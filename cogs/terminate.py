@@ -6,7 +6,11 @@ class Terminate(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    def is_it_me(self, ctx):
+        return ctx.author.id == 341661393667227650
+
     @commands.command()
+    @commands.check(is_it_me)
     async def terminate(self, ctx):
         """Terminates the bot. Only to be used by me muthafucka"""
         x = datetime.now()

@@ -78,3 +78,47 @@ Started at:	 06/10/2020, 15:24:00
 Logged in as DisPybot - 709924438262546570
 Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
 
+Started at:	 06/10/2020, 16:10:05
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
+
+Started at:	 06/10/2020, 16:24:07
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
+
+Started at:	 06/10/2020, 16:24:58
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
+
+Started at:	 06/10/2020, 16:27:43
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
+
+Started at:	 06/10/2020, 16:32:02
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
+
+Started at:	 06/10/2020, 16:43:52
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
+
+Started at:	 06/10/2020, 17:19:03
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
+
+Started at:	 06/10/2020, 17:25:42
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
+
+Started at:	 06/10/2020, 23:51:38
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
+
+Started at:	 06/15/2020, 14:30:58
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
+
+Started at:	 06/15/2020, 14:42:59
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, TestServer,
+

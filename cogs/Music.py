@@ -84,6 +84,7 @@ class Music(commands.Cog):
 
         await ctx.send('Now playing: {}'.format(player.title))
 
+
     @commands.command()
     async def stream(self, ctx, *, url):
         """Streams from a url (same as yt, but doesn't predownload)"""
@@ -123,13 +124,6 @@ class Music(commands.Cog):
         elif ctx.voice_client.is_playing():
             ctx.voice_client.stop()
 
-bot = commands.Bot(command_prefix=commands.when_mentioned_or("!"),
-                   description='Relatively simple music bot example')
-
-@bot.event
-async def on_ready():
-    print('Logged in as {0} ({0.id})'.format(bot.user))
-    print('------')
 
 def setup(client):
     client.add_cog(Music(client))
