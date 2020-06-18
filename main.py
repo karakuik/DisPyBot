@@ -10,6 +10,8 @@ import datetime
 client = commands.Bot(command_prefix='.')
 
 
+
+
 @client.command()
 async def load(ctx, extension):
   client.load_extension(f'cogs.{extension}')
@@ -43,6 +45,12 @@ async def on_ready():
         my_file.write(' ' + servers[x - 1].name + ',')
     my_file.write("\n\n")
     my_file.close()
+    for file in os.listdir("."):
+        if os.path.isfile(file) and file.startswith("youtube"):
+            try:
+                os.remove(file)
+            except e:
+                print(e)
 
     print("Connected on " + str(len(client.guilds)) + " servers: ")
     for x in range(len(servers)):

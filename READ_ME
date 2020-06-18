@@ -10,12 +10,32 @@ Change Log:
 6/10/2020 0.1.2 : Added YT player as a COG. Idk if it'll work properly but who cares??!!
 6/10/2020 0.1.2 : Added List of servers I'm on to the Log
 
+6/15/2020 0.1.3 : Changed Terminate to the BotMaster only
+6/15/2020 0.1.3 : on Ready Event deletes all old YT videos, lets hope this doesnt backfire
+6/15/2020 0.1.3 : Added Test to Speech on VoiceChannels
+
+6/18/2020 0.1.4 : Added Pause/Resume to Voice Channel
+
 To Do:
+
+Meme Generator__:
+https://medium.com/daily-python/python-script-to-generate-meme-daily-python-11-e08aee07e940
+
+Reactions__:
+Work files and make it send a random image based on feeling
+i.e. .react Sad
+{ctx.author.id} is Sad :( and sends a pic
+
 Log viewer__:
 Count up time
 
 Voice Channel__:
-Play spotify
+Play spotify (Cannot complete, this shit is illegal)
 Play mp3 files --Complete
 Play Youtube videos --Complete
-Delete Said Youtube videos reeee
+Delete Said Youtube videos --Complete
+Pause Music  --Complete
+Resume Music --Complete
+Add Song to Queue
+----
+Have TTS be able to do shit

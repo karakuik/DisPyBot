@@ -20,6 +20,17 @@ class VoiceChannelCog(commands.Cog):
         else:
             await ctx.send('You are not in a voice channel!')
 
+
+    @commands.command()
+    async def jvcTest(self, ctx, channel: discord.VoiceChannel):
+        if ctx.voice_client is not None:
+            return await ctx.voice_client.move_to(channel)
+
+        await channel.connect()
+
+
+
+
     @commands.command()
     async def leaveVC(self, ctx):
         """Leaves Voice Channel"""

@@ -1,8 +1,7 @@
 import asyncio
-
 import discord
 import youtube_dl
-
+from gtts import gTTS
 from discord.ext import commands
 
 # Suppress noise about console usage from errors
@@ -74,6 +73,17 @@ class Music(commands.Cog):
 
         await ctx.send('Now playing: {}'.format(query))
 
+
+    #https://cloud.google.com/speech-to-text/docs/languages
+    @commands.command()
+    async def speechVC(self, ctx, *, name):
+        """Puts text to speech in the VC channel. Use as .speechVC {TTS}"""
+        tts = gTTS(f'{name}', lang="en-US")
+        tts.save(f'speech.mp3')
+        source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio('speech.mp3'))
+        ctx.voice_client.play(source, after=lambda e: print('Player error: %s' % e) if e else None)
+        await ctx.send('Playing tts in VC')
+
     @commands.command()
     async def yt(self, ctx, *, url):
         """Plays from a url (almost anything youtube_dl supports)"""
@@ -104,6 +114,17 @@ class Music(commands.Cog):
 
         ctx.voice_client.source.volume = volume / 100
         await ctx.send("Changed volume to {}%".format(volume))
+
+    @commands.command()
+    async def pause(self, ctx):
+        if ctx.voice_client.is_playing():
+            await ctx.voice_client.pause()
+
+    @commands.command()
+    async def resume(self, ctx):
+        if not ctx.voice_client.is_playing():
+            await ctx.voice_client.resume()
+
 
     @commands.command()
     async def stop(self, ctx):
