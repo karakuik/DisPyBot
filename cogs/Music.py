@@ -3,6 +3,7 @@ import discord
 import youtube_dl
 from gtts import gTTS
 from discord.ext import commands
+from functools import partial
 
 # Suppress noise about console usage from errors
 youtube_dl.utils.bug_reports_message = lambda: ''
@@ -50,10 +51,40 @@ class YTDLSource(discord.PCMVolumeTransformer):
         filename = data['url'] if stream else ytdl.prepare_filename(data)
         return cls(discord.FFmpegPCMAudio(filename, **ffmpeg_options), data=data)
 
+    def __getitem__(self, item: str):
+        """Allows us to access attributes similar to a dict.
+        This is only useful when you are NOT downloading.
+        """
+        return self.__getattribute__(item)
+
+    @classmethod
+    async def create_source(cls, ctx, search: str, *, loop, download=False):
+        loop = loop or asyncio.get_event_loop()
+
+        to_run = partial(ytdl.extract_info, url=search, download=download)
+        data = await loop.run_in_executor(None, to_run)
+
+        if 'entries' in data:
+            # take first item from a playlist
+            data = data['entries'][0]
+
+        await ctx.send(f'```ini\n[Added {data["title"]} to the Queue.]\n```', delete_after=15)
+
+        if download:
+            source = ytdl.prepare_filename(data)
+        else:
+            return {'webpage_url': data['webpage_url'], 'requester': ctx.author, 'title': data['title']}
+
+        return cls(discord.FFmpegPCMAudio(source), data=data, requester=ctx.author)
+
 
 class Music(commands.Cog):
+
+    __slots__ = ('bot', 'players')
+
     def __init__(self, bot):
         self.bot = bot
+        self.players = {}
 
     @commands.command()
     async def join(self, ctx, *, channel: discord.VoiceChannel):
@@ -96,6 +127,31 @@ class Music(commands.Cog):
 
 
     @commands.command()
+    async def ytTest(self, ctx, *, search: str):
+        """In testing phase of Queueing songs"""
+        player = self.get_player(ctx)
+
+        async with ctx.typing():
+            #source = await YTDLSource.from_url(url, loop=self.bot.loop)
+            source = await YTDLSource.create_source(ctx, search, loop=self.bot.loop, download=False)
+            ctx.voice_client.play(source, after=lambda e: print('Player error: %s' % e) if e else None)
+
+            await player.queue.put(source)
+
+        await ctx.send('Now playing: {}'.format(source.title))
+
+    def get_player(self, ctx):
+        """Retrieve the guild player, or generate one."""
+        try:
+            player = self.players[ctx.guild.id]
+        except KeyError:
+            player = Music(ctx)
+            self.players[ctx.guild.id] = player
+
+        return player
+
+
+    @commands.command()
     async def stream(self, ctx, *, url):
         """Streams from a url (same as yt, but doesn't predownload)"""
 
@@ -135,6 +191,7 @@ class Music(commands.Cog):
     @play.before_invoke
     @yt.before_invoke
     @stream.before_invoke
+    @speechVC.before_invoke
     async def ensure_voice(self, ctx):
         if ctx.voice_client is None:
             if ctx.author.voice:

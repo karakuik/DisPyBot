@@ -10,7 +10,9 @@ import datetime
 client = commands.Bot(command_prefix='.')
 
 
-
+hiddenFile = open("APISecret.txt", 'r')
+APIKey = hiddenFile.read()
+hiddenFile.close()
 
 @client.command()
 async def load(ctx, extension):
@@ -98,4 +100,4 @@ for filename in os.listdir('./cogs'):
         continue
     client.load_extension(f'cogs.{filename[:-3]}')
 
-client.run('NzA5OTI0NDM4MjYyNTQ2NTcw.XrtA2w.Abww4O7DauKLWasrl2FG3oToBU8')
+client.run(APIKey)
