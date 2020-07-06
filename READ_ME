@@ -16,10 +16,15 @@ Change Log:
 
 6/18/2020 0.1.4 : Added Pause/Resume to Voice Channel
 
+7/3/2020 0.1.5 : Hid the API Key in a file. It's probably still up on github though lmfaooo oops :(
+
+7/5/2020 0.2.1 : Added meme.py cog. So far it can only get the list of memes up to #88
+
 To Do:
 
 Meme Generator__:
 https://medium.com/daily-python/python-script-to-generate-meme-daily-python-11-e08aee07e940
+https://repl.it/@karakuik/Imgflip-API
 
 Reactions__:
 Work files and make it send a random image based on feeling

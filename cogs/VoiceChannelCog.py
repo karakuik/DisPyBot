@@ -13,10 +13,10 @@ class VoiceChannelCog(commands.Cog):
         """Joins Voice Channel"""
         if ctx.author.voice.channel != None:
             await ctx.author.voice.channel.connect()
-            url = 'https://www.youtube.com/watch?v=rPOUewuNKFE'
+           # url = 'https://www.youtube.com/watch?v=rPOUewuNKFE'
             await ctx.send('I joined your channel.')
-            player = await ctx.author.voice.channel.create_ytdl_player(url)
-            player.start()
+         #   player = await ctx.author.voice.channel.create_ytdl_player(url)
+          #  player.start()
         else:
             await ctx.send('You are not in a voice channel!')
 
