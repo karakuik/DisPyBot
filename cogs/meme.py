@@ -11,7 +11,7 @@ username = 'mrcallus'
 password = temp.read()
 temp.close()
 
-if os.stat("memeIDs.txt").st_size == 0:
+if os.stat("memeIDs.txt").st_size != 0:
     memeFile = open("memeIDs.txt", "w")
     data = requests.get('https://api.imgflip.com/get_memes').json()['data']['memes']
     images = [{'name': image['name'], 'url': image['url'], 'id': image['id']} for image in data]
@@ -35,24 +35,45 @@ class meme(commands.Cog):
 
     @commands.command()
     async def meme(self, ctx, *, meme):
+        """Makes a meme use num, topline, bottomline *include commas!"""
         if not meme:
             await ctx.send("Empty!")
         if meme == "help":
-            await ctx.send("This is a meme maker. Here is a list of memes you can make. Ex. Meme ID: top text, bottom text.")
-            await ctx.send("Help is on the way!!2")
+            await ctx.send("Help is on the way!!1!1")
             memeFile = open("memeIDs.txt", "r")
             idString = ""
             for x in memeFile:
-                idString = idString  + x
+                idString = idString + x
                 if len(idString) > 1975:
-                    break
+                    await ctx.send(idString)
+                    idString = ""
             memeFile.close()
             await ctx.send(idString)
-        #await ctx.send(file=discord.File('000.jpg'))
-        #If null embed help
-        #if list return list
-        #Separate by comma?? Bottom/Top Test
-        #Save as a meme.jpg, for override
+            await ctx.send("Send in the format of .meme num, topline, bottomline")
+            await ctx.send("I separate using commas so be sure to add those until i figure out a better way :joy:")
+        else:
+            data = requests.get('https://api.imgflip.com/get_memes').json()['data']['memes']
+            images = [{'name': image['name'], 'url': image['url'], 'id': image['id']} for image in data]
+            memeID = meme.split(", ")
+            id = int(memeID[0])
+            text0 = memeID[1]
+            text1 = memeID[2]
+            URL = 'https://api.imgflip.com/caption_image'
+            params = {
+                'username': username,
+                'password': password,
+                'template_id': images[id - 1]['id'],
+                'text0': text0,
+                'text1': text1
+            }
+            response = requests.request('POST', URL, params=params).json()
+            print(response)
+
+            # Save the meme
+            opener = urllib.request.URLopener()
+            opener.addheader('User-Agent', userAgent)
+            filename, headers = opener.retrieve(response['data']['url'], images[id - 1]['name'] + '.jpg')
+            await ctx.send(file = discord.File(images[id - 1]['name'] + '.jpg'))
 
 def setup(client):
     client.add_cog(meme(client))

@@ -48,7 +48,7 @@ async def on_ready():
     my_file.write("\n\n")
     my_file.close()
     for file in os.listdir("."):
-        if os.path.isfile(file) and file.startswith("youtube"):
+        if (os.path.isfile(file) and file.startswith("youtube")) or (os.path.isfile(file) and file.endswith(".jpg")):
             try:
                 os.remove(file)
             except e:

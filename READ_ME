@@ -19,6 +19,10 @@ Change Log:
 7/3/2020 0.1.5 : Hid the API Key in a file. It's probably still up on github though lmfaooo oops :(
 
 7/5/2020 0.2.1 : Added meme.py cog. So far it can only get the list of memes up to #88
+7/7/2020 0.2.1.a : meme.py cog now lists all of the memes in the list in 2 messages
+
+7/10/2020 0.2.2 : meme.py cog now allows sending and creation of memes by use of comma and splitter
+7/10/2020 0.2.2.a : main.py also removes images now. Might have to add to a timed loop just to clear space
 
 To Do:
 
@@ -43,4 +47,6 @@ Pause Music  --Complete
 Resume Music --Complete
 Add Song to Queue -->https://gist.github.com/EvieePy/ab667b74e9758433b3eb806c53a19f34
 ----
-Have TTS be able to do shit
+Have TTS be able to do shit --Complete
+
+
