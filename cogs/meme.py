@@ -3,6 +3,7 @@ from discord.ext import commands
 import requests
 import urllib
 import os
+import os.path
 
 temp = open("password.txt", 'r')
 userAgent ='Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Raspbian Chromium/78.0.3904.108 Chrome/78.0.3904.108 Safari/537.36'
@@ -11,17 +12,29 @@ username = 'mrcallus'
 password = temp.read()
 temp.close()
 
-if os.stat("memeIDs.txt").st_size != 0:
-    memeFile = open("memeIDs.txt", "w")
-    data = requests.get('https://api.imgflip.com/get_memes').json()['data']['memes']
-    images = [{'name': image['name'], 'url': image['url'], 'id': image['id']} for image in data]
-    ctr = 1
-    for img in images:
-        imageName = str(ctr) + ' ' + img['name']
-        memeFile.write(imageName + "\n")
-        ctr = ctr + 1
-    memeFile.close()
+directory = '/home/pi/PycharmProjects/DiscordBot/TextFiles/'
+filename = "memeIDs.txt"
+file_path = os.path.join(directory, filename)
+file = open(file_path, "w")
+data = requests.get('https://api.imgflip.com/get_memes').json()['data']['memes']
+images = [{'name': image['name'], 'url': image['url'], 'id': image['id']} for image in data]
+ctr = 1
+for img in images:
+    imageName = str(ctr) + ' ' + img['name']
+    file.write(imageName + "\n")
+    ctr = ctr + 1
+file.close()
 
+#if os.stat("memeIDs.txt").st_size != 0:
+#    memeFile = open("memeIDs.txt", "w")
+#    data = requests.get('https://api.imgflip.com/get_memes').json()['data']['memes']
+ #   images = [{'name': image['name'], 'url': image['url'], 'id': image['id']} for image in data]
+  #  ctr = 1
+   # for img in images:
+    #    imageName = str(ctr) + ' ' + img['name']
+     #   memeFile.write(imageName + "\n")
+      #  ctr = ctr + 1
+    #memeFile.close()
 
 
 class meme(commands.Cog):
@@ -32,6 +45,7 @@ class meme(commands.Cog):
         data = requests.get('https://api.imgflip.com/get_memes').json()['data']['memes']
         images = [{'name': image['name'], 'url': image['url'], 'id': image['id']} for image in data]
         return images
+
 
     @commands.command()
     async def meme(self, ctx, *, meme):

@@ -39,7 +39,7 @@ async def on_ready():
     x = datetime.datetime.now()
     servers = list(client.guilds)
     print(x.strftime("Started at:\t %m/%d/%Y, %H:%M:%S\n\n"))
-    my_file = open("Log.txt", "a")
+    my_file = open("TextFiles/Log.txt", "a")
     my_file.write(x.strftime("Started at:\t %m/%d/%Y, %H:%M:%S\n"))
     my_file.write(f'Logged in as {client.user.name} - {client.user.id}\n')
     my_file.write("Connected to: + " + str(len(client.guilds)) + " Servers:")
@@ -63,7 +63,7 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
     x = datetime.datetime.now()
-    my_file = open("User_Log.txt", "a")
+    my_file = open("TextFiles/User_Log.txt", "a")
     my_file.write(x.strftime(f"{member} joined at:\t %m/%d/%Y, %H:%M:%S\n\n"))
     my_file.close()
     print(f'{member} has joined a server.')
@@ -72,7 +72,7 @@ async def on_member_join(member):
 @client.event
 async def on_member_remove(member):
     x = datetime.datetime.now()
-    my_file = open("User_Log.txt", "a")
+    my_file = open("TextFiles/User_Log.txt", "a")
     my_file.write(x.strftime(f"{member} left at:\t %m/%d/%Y, %H:%M:%S\n\n"))
     my_file.close()
     print(f'{member} has left the server')

@@ -24,7 +24,15 @@ Change Log:
 7/10/2020 0.2.2 : meme.py cog now allows sending and creation of memes by use of comma and splitter
 7/10/2020 0.2.2.a : main.py also removes images now. Might have to add to a timed loop just to clear space
 
+7/13/2020 0.2.3 : Too many text files, moved them to a specific folder
+
 To Do:
+
+Touch ups__:
+Add error reports and checks
+Add permissions to certain commands
+Certain commands can only be done in certain channels
+Make Tyler's bot ;)
 
 Meme Generator__:
 https://medium.com/daily-python/python-script-to-generate-meme-daily-python-11-e08aee07e940

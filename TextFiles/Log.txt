@@ -442,3 +442,31 @@ Started at:	 07/10/2020, 07:52:03
 Logged in as DisPybot - 709924438262546570
 Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, Big Swaggies,
 
+Started at:	 07/10/2020, 20:57:43
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, Big Swaggies,
+
+Started at:	 07/13/2020, 07:55:19
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, Big Swaggies,
+
+Started at:	 07/13/2020, 08:07:55
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, Big Swaggies,
+
+Started at:	 07/13/2020, 08:12:02
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, Big Swaggies,
+
+Started at:	 07/13/2020, 08:14:30
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, Big Swaggies,
+
+Started at:	 07/13/2020, 08:16:11
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, Big Swaggies,
+
+Started at:	 07/13/2020, 08:47:21
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, Big Swaggies,
+
