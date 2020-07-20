@@ -19,23 +19,18 @@ class Example(commands.Cog):
         print('bot is online, from cog with love')
 
     # Commands
-    @commands.command()
+    @commands.command(description = "Pings from a cog")
     async def ling(self, ctx):
         await ctx.send('Long from cog!')
         # Checks ping
 
-    @commands.command()
+    @commands.command(description = "Checks latency for commands")
     async def ping(self, ctx):
         """Checks the latency and if receiving commands"""
         await ctx.send(f'Pong! My Latency is {round(self.commands.latency * 1000)}ms')
 
-    # Sends FizzBuzz
-    @commands.command()
-    async def fizz(self, ctx):
-        await ctx.send('buzz!')
-
     # Clears the chat
-    @commands.command()
+    @commands.command(description = "Purges messages from the chat. Argument = amount")
     async def clear(self, ctx, amount=0):
         """Clears the chat. Use this followed by a #"""
         await ctx.channel.purge(limit=amount)
@@ -43,7 +38,7 @@ class Example(commands.Cog):
             await ctx.send('Please state an amount. i.e. ".clear 5"')
 
     # Anyone wanna play league?
-    @commands.command()
+    @commands.command(description = "Spam everyone asking to play league")
     async def league(self, ctx):
         """use this to check for homos in your area"""
         responses = ['Anyone wanna play league?',
@@ -66,18 +61,18 @@ class Example(commands.Cog):
                      'If your mmr is above room temperature, lets play some league']
         await ctx.send(f'@everyone {random.choice(responses)}')
 
-    @commands.command()
+    @commands.command(description = "Spam everyone asking to play heroes reee")
     async def heroes(self, ctx):
         await ctx.send('@everyone HEEEERRRROOOOESSSSSS')
 
     # Annoy miguel, fix later :)
-    @commands.command()
+    @commands.command(description = "Gonna eventually fix this to spam miguel")
     async def annoyMiguel(self, ctx):
         for x in range(1):
             await ctx.send('https://www.youtube.com/watch?v=v5RZ8k6iQik, youre dead now!')
 
     # Magic 8Ball
-    @commands.command(aliases=['8ball', 'test'])
+    @commands.command(aliases=['8ball', 'test'], description = "Ask the magic 8ball a question!")
     async def _8ball(self, ctx, *, question):
         responses = ["It is certain.",
                      "It is decidedly so.",
@@ -102,25 +97,27 @@ class Example(commands.Cog):
         await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
     # Sends file to chat
-    @commands.command()
+    @commands.command(description = "Example. Sends a picture, no need for help")
     async def send(self, ctx):
-        """Sends an image. Need to work on this"""
+        """Sends an image."""
         await ctx.send(file=discord.File('000.jpg'))
 
     # Sends mp3 to chat
-    @commands.command()
+    @commands.command(description = "Sends an MP3. No longer useful.")
     async def excision(self, ctx):
         """Sends an mp3 to the chat. Need to work on this"""
         await ctx.send(file=discord.File('Excision.mp3'))
 
-    @commands.command()
+    @commands.command(description = "Sends an MP3 into the chat.")
     async def speech(self, ctx, *, name):
+        """Sends a text to speech into the chat. Fun!"""
         tts = gTTS(f'{name}', lang="en-ie")
         tts.save(f'speech.mp3')
         await ctx.send(file=discord.File(f'speech.mp3'))
 
-    @commands.command()
+    @commands.command(description = "Reverses your speech, even in mp3 format!")
     async def rspeech(self, ctx, *, name):
+        """Reverses speech into mp3 format. Maybe you'll hear the devil!"""
         reverse = name[::-1]
         tts = gTTS(f'{reverse}')
         tts.save(f'reverse.mp3')
@@ -133,11 +130,12 @@ class Example(commands.Cog):
         tts.save('hi.mp3')
         await ctx.send(file=discord.File('hi.mp3'))
 
-    @commands.command()
+    @commands.command(description = "@ a member when you do this!")
     async def hug(self, ctx, *, user: discord.Member):
+        """Sends a hug to a member :heart:"""
         await ctx.send(f"hug for {user.mention} :heart::heart::heart:")
 
-    @commands.command()
+    @commands.command(description = "Make an announcement")
     async def announce(self, ctx):
         """makes a minor announcement. No Sweat."""
         msg = ctx.message.content
@@ -160,6 +158,32 @@ class Example(commands.Cog):
             pass
 
         return
+
+    @commands.command(name='repeat', aliases=['mimic', 'copy'])
+    async def do_repeat(self, ctx, *, inp: str):
+        """A simple command which repeats your input!
+        Parameters
+        ------------
+        inp: str
+            The input you wish to repeat.
+        """
+        for role in ctx.guild.roles:
+            if role.name == 'Admin':
+              await ctx.send(inp)
+            else:
+                pass
+
+    @do_repeat.error
+    async def do_repeat_handler(self, ctx, error):
+        """A local Error Handler for our command do_repeat.
+        This will only listen for errors in do_repeat.
+        The global on_command_error will still be invoked after.
+        """
+
+        # Check if our required argument inp is missing.
+        if isinstance(error, commands.MissingRequiredArgument):
+            if error.param.name == 'inp':
+                await ctx.send("You forgot to give me input to repeat!")
 
 
 

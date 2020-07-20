@@ -89,6 +89,19 @@ async def on_message(message):
         await message.channel.send(":D")
         # await message.author.send('👋') #This sends me a wave
 
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("Please pass all required arguments.\nUse help for more info")
+
+@client.command
+async def test_Command(ctx, str):
+    await ctx.send(str);
+
+#@test_Command.error
+#async def meme_error(ctx, error):
+#    if isinstance(error, commands.MissingRequiredArgument):
+#        await ctx.send("No arguments found.\nEnter like this: .meme 1, Top Text, Bottom Text")
 
 # Add a .youreBad with f{person name}
 # Add a .AnnoyMiguel

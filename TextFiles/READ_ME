@@ -24,19 +24,24 @@ Change Log:
 7/10/2020 0.2.2 : meme.py cog now allows sending and creation of memes by use of comma and splitter
 7/10/2020 0.2.2.a : main.py also removes images now. Might have to add to a timed loop just to clear space
 
-7/13/2020 0.2.3 : Too many text files, moved them to a specific folder
+7/13/2020 0.2.2.a.1 : Too many text files, moved them to a specific folder
+
+7/20/2020 0.2.3 : Added Error Handling to the Project and to meme. Will continue as necessary.
+7/20/2020 0.2.3.a : Added Role permission checks (Refer to To_DO__:
+7/20/2020 0.2.3.a.1 : Added Descriptions Check TO_DO___:
+
 
 To Do:
 
 Touch ups__:
-Add error reports and checks
-Add permissions to certain commands
-Certain commands can only be done in certain channels
+Add error reports and checks  --Incomplete
+Add permissions to certain commands --Complete
+Certain commands can only be done in certain channels --Incomplete
 Make Tyler's bot ;)
 
 Meme Generator__:
-https://medium.com/daily-python/python-script-to-generate-meme-daily-python-11-e08aee07e940
-https://repl.it/@karakuik/Imgflip-API
+https://medium.com/daily-python/python-script-to-generate-meme-daily-python-11-e08aee07e940 --Complete!
+https://repl.it/@karakuik/Imgflip-API --Complete!!
 
 Reactions__:
 Work files and make it send a random image based on feeling

@@ -25,17 +25,6 @@ for img in images:
     ctr = ctr + 1
 file.close()
 
-#if os.stat("memeIDs.txt").st_size != 0:
-#    memeFile = open("memeIDs.txt", "w")
-#    data = requests.get('https://api.imgflip.com/get_memes').json()['data']['memes']
- #   images = [{'name': image['name'], 'url': image['url'], 'id': image['id']} for image in data]
-  #  ctr = 1
-   # for img in images:
-    #    imageName = str(ctr) + ' ' + img['name']
-     #   memeFile.write(imageName + "\n")
-      #  ctr = ctr + 1
-    #memeFile.close()
-
 
 class meme(commands.Cog):
     def __init__(self, client):
@@ -47,14 +36,14 @@ class meme(commands.Cog):
         return images
 
 
-    @commands.command()
+    @commands.command(description = "Creates a meme for the chat. EX: .meme 1, Hello, World!")
     async def meme(self, ctx, *, meme):
         """Makes a meme use num, topline, bottomline *include commas!"""
         if not meme:
             await ctx.send("Empty!")
         if meme == "help":
             await ctx.send("Help is on the way!!1!1")
-            memeFile = open("memeIDs.txt", "r")
+            memeFile = open("TextFiles/memeIDs.txt", "r")
             idString = ""
             for x in memeFile:
                 idString = idString + x
@@ -88,6 +77,11 @@ class meme(commands.Cog):
             opener.addheader('User-Agent', userAgent)
             filename, headers = opener.retrieve(response['data']['url'], images[id - 1]['name'] + '.jpg')
             await ctx.send(file = discord.File(images[id - 1]['name'] + '.jpg'))
+
+    @meme.error
+    async def meme_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("No arguments found.\nEnter like this: .meme 1, Top Text, Bottom Text")
 
 def setup(client):
     client.add_cog(meme(client))
