@@ -103,9 +103,6 @@ async def test_Command(ctx, str):
 #    if isinstance(error, commands.MissingRequiredArgument):
 #        await ctx.send("No arguments found.\nEnter like this: .meme 1, Top Text, Bottom Text")
 
-# Add a .youreBad with f{person name}
-# Add a .AnnoyMiguel
-
 for filename in os.listdir('./cogs'):
   if filename.endswith('.py'):
     print(f'cogs.{filename[:-3]}')
@@ -114,3 +111,4 @@ for filename in os.listdir('./cogs'):
     client.load_extension(f'cogs.{filename[:-3]}')
 
 client.run(APIKey)
+#NzA5OTI0NDM4MjYyNTQ2NTcw.Xrs-pw.Fi234bjX5YTMY4RY6zYowYMyMt0
