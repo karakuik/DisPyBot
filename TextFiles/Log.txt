@@ -582,3 +582,11 @@ Started at:	 07/29/2020, 18:00:01
 Logged in as DisPybot - 709924438262546570
 Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, Big Swaggies,
 
+Started at:	 08/01/2020, 22:12:22
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, Big Swaggies,
+
+Started at:	 08/02/2020, 14:19:13
+Logged in as DisPybot - 709924438262546570
+Connected to: + 3 Servers: Dis Py Bot Test Server, EnGen Entertainment, Big Swaggies,
+

@@ -8,6 +8,8 @@ from functools import partial
 # Suppress noise about console usage from errors
 youtube_dl.utils.bug_reports_message = lambda: ''
 
+queue = []
+#Made global 8/2/20 use on youtest
 
 ytdl_format_options = {
     'format': 'bestaudio/best',
@@ -124,6 +126,18 @@ class Music(commands.Cog):
             ctx.voice_client.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
 
         await ctx.send('Now playing: {}'.format(player.title))
+
+        @commands.command(description="plays a youtube video. use .yt Followed by Link")
+        async def youtest(self, ctx, *, url):
+            """Plays from a url (almost anything youtube_dl supports)"""
+
+
+
+            async with ctx.typing():
+                player = await YTDLSource.from_url(url, loop=self.bot.loop)
+                ctx.voice_client.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
+
+            await ctx.send('Now playing: {}'.format(player.title))
 
 
     @commands.command()
