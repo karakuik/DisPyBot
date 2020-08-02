@@ -3,8 +3,8 @@
 3 Two Buttons
 4 Change My Mind
 5 Running Away Balloon
-6 Mocking Spongebob
-7 UNO Draw 25 Cards
+6 UNO Draw 25 Cards
+7 Mocking Spongebob
 8 Left Exit 12 Off Ramp
 9 Expanding Brain
 10 Batman Slapping Robin
@@ -52,8 +52,8 @@
 52 Who Would Win?
 53 Grandma Finds The Internet
 54 First World Problems
-55 That Would Be Great
-56 But That's None Of My Business
+55 But That's None Of My Business
+56 That Would Be Great
 57 Laughing Men In Suits
 58 This Is Where I'd Put My Trophy If I Had One
 59 Y U No
@@ -68,16 +68,16 @@
 68 Look At Me
 69 See Nobody Cares
 70 Squidward
-71 Bad Luck Brian
-72 Brace Yourselves X is Coming
+71 Brace Yourselves X is Coming
+72 Bad Luck Brian
 73 Presidential Alert
 74 Well Yes, But Actually No
-75 Maury Lie Detector
-76 Say it Again, Dexter
+75 Say it Again, Dexter
+76 Maury Lie Detector
 77 Scared Cat
 78 Creepy Condescending Wonka
-79 Put It Somewhere Else Patrick
-80 X All The Y
+79 X All The Y
+80 Put It Somewhere Else Patrick
 81 Too Damn High
 82 Marvel Civil War 1
 83 Uncle Sam
@@ -87,13 +87,13 @@
 87 Be Like Bill
 88 I'll Just Wait Here
 89 Dr Evil Laser
-90 I Should Buy A Boat Cat
-91 Surprised Koala
+90 Surprised Koala
+91 I Should Buy A Boat Cat
 92 Face You Make Robert Downey Jr
 93 Mugatu So Hot Right Now
 94 Philosoraptor
-95 Success Kid
-96 I'm The Captain Now
+95 I'm The Captain Now
+96 Success Kid
 97 Simba Shadowy Place
 98 Grumpy Cat
 99 Sparta Leonidas

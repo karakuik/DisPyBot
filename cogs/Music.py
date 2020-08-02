@@ -127,17 +127,24 @@ class Music(commands.Cog):
 
         await ctx.send('Now playing: {}'.format(player.title))
 
-        @commands.command(description="plays a youtube video. use .yt Followed by Link")
-        async def youtest(self, ctx, *, url):
-            """Plays from a url (almost anything youtube_dl supports)"""
+    @commands.command(description="plays a youtube video. use .yt Followed by Link")
+    async def youtest(self, ctx, *, url):
+        """Plays from a url (almost anything youtube_dl supports)"""
+        if url == "clear":
+            queue.clear()
+        queue.append(url)
+        await ctx.send(queue)
+        while True:
+            if not ctx.voice_client.is_playing() and len(queue)>0:
+                async with ctx.typing():
+                    player = await YTDLSource.from_url(queue.pop(0), loop=self.bot.loop)
+                    ctx.voice_client.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
+                await ctx.send('Now playing: {}'.format(player.title))
+            #else:
+            #     await ctx.send("Song Queued")
+            if len(queue) < 1:
+                break
 
-
-
-            async with ctx.typing():
-                player = await YTDLSource.from_url(url, loop=self.bot.loop)
-                ctx.voice_client.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
-
-            await ctx.send('Now playing: {}'.format(player.title))
 
 
     @commands.command()
@@ -201,7 +208,7 @@ class Music(commands.Cog):
     @commands.command(description = "Disconnects from the voice channel")
     async def stop(self, ctx):
         """Stops and disconnects the bot from voice"""
-
+        queue.clear()
         await ctx.voice_client.disconnect()
 
     @play.before_invoke
