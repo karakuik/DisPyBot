@@ -111,4 +111,3 @@ for filename in os.listdir('./cogs'):
     client.load_extension(f'cogs.{filename[:-3]}')
 
 client.run(APIKey)
-#NzA5OTI0NDM4MjYyNTQ2NTcw.Xrs-pw.Fi234bjX5YTMY4RY6zYowYMyMt0
